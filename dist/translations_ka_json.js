@@ -1,0 +1,14 @@
+"use strict";
+(globalThis["webpackChunk_openmrs_esm_primary_navigation_app"] = globalThis["webpackChunk_openmrs_esm_primary_navigation_app"] || []).push([["translations_ka_json"],{
+
+/***/ "./translations/ka.json"
+/*!******************************!*\
+  !*** ./translations/ka.json ***!
+  \******************************/
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"AppMenuTooltip":"აპის მენიუ","cancel":"გაუქმება","change":"შეცვლა","changeDefaultLocale":"Update your default locale","changeDefaultLocaleExplanation":"Leave this unchecked to change language for this session only","changeLanguage":"ენის შეცვლა","changingLanguage":"მიმდინარეობს ენის შეცვლა","noPathInDashboardExtension":"Cannot render the dashboard extension without the property \\"path\\" being set in the configuration schema","notifications":"გაფრთხილებები","userMenu":"მომხმარებლის მენიუ","userMenuOptions":"მომხმარებლის მენიუს მორგება","userMenuTooltip":"ჩემი ანგარიში"}');
+
+/***/ }
+
+}]);
