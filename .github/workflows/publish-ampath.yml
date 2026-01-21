@@ -91,7 +91,7 @@ jobs:
       - name: 📦 Publish to npm with next tag
         run: yarn npm publish --tag next --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
   publish-release:
     runs-on: ubuntu-latest
@@ -132,9 +132,9 @@ jobs:
       - name: Create temporary .npmrc
         run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: 📦 Publish to npm with latest tag
         run: yarn npm publish --tag latest --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
