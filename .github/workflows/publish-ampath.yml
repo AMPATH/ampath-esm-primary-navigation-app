@@ -116,9 +116,6 @@ jobs:
       - name: Activate Yarn 4.10.3
         run: corepack prepare yarn@4.10.3 --activate
 
-      - name: Verify Yarn version
-        run: yarn --version
-
       - name: 📦 Install dependencies
         run: yarn install --immutable
 
@@ -126,11 +123,16 @@ jobs:
         run: |
           RELEASE_VERSION=${{ github.ref_name }}
           RELEASE_VERSION=${RELEASE_VERSION#v}
-          yarn version $RELEASE_VERSION --immediate
+          yarn version $RELEASE_VERSION --immediate --no-git-tag-version
           echo "Publishing release version: $RELEASE_VERSION"
 
       - name: 🏗️ Build
         run: yarn build
+
+      - name: Create temporary .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: 📦 Publish to npm with latest tag
         run: npm publish --tag latest --access public
