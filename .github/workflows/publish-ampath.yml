@@ -82,7 +82,7 @@ jobs:
         run: |
           CURRENT_VERSION=$(node -e "console.log(require('./package.json').version)")
           NEXT_VERSION="${CURRENT_VERSION}-next.${{ github.run_number }}"
-          yarn version $NEXT_VERSION --immediate --no-git-tag-version
+          yarn version $NEXT_VERSION --immediate 
           echo "Publishing version: $NEXT_VERSION"
 
       - name: 🏗️ Build
@@ -123,7 +123,7 @@ jobs:
         run: |
           RELEASE_VERSION=${{ github.ref_name }}
           RELEASE_VERSION=${RELEASE_VERSION#v}
-          yarn version $RELEASE_VERSION --immediate --no-git-tag-version
+          yarn version $RELEASE_VERSION --immediate
           echo "Publishing release version: $RELEASE_VERSION"
 
       - name: 🏗️ Build
