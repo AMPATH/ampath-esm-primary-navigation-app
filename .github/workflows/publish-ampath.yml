@@ -89,7 +89,7 @@ jobs:
         run: yarn build
 
       - name: 📦 Publish to npm with next tag
-        run: npm publish --tag next --access public
+        run: yarn npm publish --tag next --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
@@ -135,6 +135,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: 📦 Publish to npm with latest tag
-        run: npm publish --tag latest --access public
+        run: yarn npm publish --tag latest --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
