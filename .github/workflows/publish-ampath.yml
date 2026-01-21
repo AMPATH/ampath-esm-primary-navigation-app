@@ -21,6 +21,15 @@ jobs:
         with:
           node-version: "20.x"
 
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Activate Yarn 4.10.3
+        run: corepack prepare yarn@4.10.3 --activate
+
+      - name: Verify Yarn version
+        run: yarn --version
+
       - name: 📦 Install dependencies
         run: yarn install --immutable
 
