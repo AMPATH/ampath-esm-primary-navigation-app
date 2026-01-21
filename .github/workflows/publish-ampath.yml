@@ -82,16 +82,16 @@ jobs:
         run: |
           CURRENT_VERSION=$(node -e "console.log(require('./package.json').version)")
           NEXT_VERSION="${CURRENT_VERSION}-next.${{ github.run_number }}"
-          yarn version $NEXT_VERSION --immediate
+          yarn version $NEXT_VERSION --immediate --no-git-tag-version
           echo "Publishing version: $NEXT_VERSION"
 
       - name: 🏗️ Build
         run: yarn build
 
       - name: 📦 Publish to npm with next tag
-        run: yarn npm publish --tag next --access public
+        run: npm publish --tag next --access public
         env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
   publish-release:
     runs-on: ubuntu-latest
