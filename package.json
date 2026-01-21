@@ -76,5 +76,6 @@
     "react-router-dom": "^6.3.0",
     "rxjs": "^6.5.3",
     "webpack": "^5.99.9"
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }
